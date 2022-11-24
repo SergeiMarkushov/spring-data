@@ -48,4 +48,14 @@ public class ProductController {
     public List<Product> findBetween(@PathVariable int maxCost, @PathVariable int minCost) {
         return productRepository.findAllByMaxMinCost(maxCost, minCost);
     }
+
+    @GetMapping("/above")
+    public List<Product> findAbove(@PathVariable int minCost) {
+        return productRepository.findAllAboveMinCost(minCost);
+    }
+
+    @GetMapping("/above")
+    public List<Product> findBelow(@PathVariable int minCost) {
+        return productRepository.findAllBelowMinCost(minCost);
+    }
 }
